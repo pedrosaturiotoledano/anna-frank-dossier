@@ -1,0 +1,128 @@
+/* =====================================================
+   Artist detail pages
+   ===================================================== */
+
+body { overflow-x: hidden; }
+
+/* Back link in header */
+.back-link {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: 'Dancing Script', cursive;
+  font-size: 1.2rem;
+  color: var(--ivory);
+  opacity: 0.85;
+  transition: opacity 0.3s;
+}
+.back-link:hover { opacity: 1; color: var(--gold); }
+.back-link svg   { flex-shrink: 0; }
+
+/* Main split layout */
+.artist-layout {
+  display: grid;
+  grid-template-columns: 42% 1fr;
+  min-height: 100vh;
+}
+
+/* Photo column — sticky */
+.artist-photo-col {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow: hidden;
+}
+.artist-photo-col img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  filter: grayscale(20%) contrast(1.05) brightness(0.75);
+}
+.artist-photo-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    transparent 60%,
+    rgba(8,8,8,0.7) 100%
+  );
+}
+
+/* Content column */
+.artist-content-col {
+  padding: 9rem 5rem 6rem 5rem;
+  background: var(--bg);
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+/* Artist header */
+.artist-header {
+  border-left: 3px solid var(--crimson);
+  padding-left: 1.5rem;
+}
+.artist-opera {
+  font-family: 'Dancing Script', cursive;
+  font-size: 1.1rem;
+  color: var(--gold);
+  margin-bottom: 0.6rem;
+}
+.artist-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2.2rem, 4vw, 3.5rem);
+  font-weight: 700;
+  color: var(--ivory);
+  line-height: 1.1;
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.01em;
+}
+.artist-role {
+  font-size: 0.75rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1rem;
+}
+.artist-awards {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 0.95rem;
+  color: var(--ivory2);
+  line-height: 1.6;
+}
+
+/* Biography */
+.artist-bio {
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+}
+.artist-bio p {
+  font-size: 1rem;
+  line-height: 1.9;
+  color: var(--ivory2);
+}
+.artist-bio p:first-child {
+  color: var(--ivory);
+  font-size: 1.05rem;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .artist-layout {
+    grid-template-columns: 1fr;
+  }
+  .artist-photo-col {
+    position: relative;
+    height: 55vw;
+    min-height: 300px;
+  }
+  .artist-photo-overlay {
+    background: linear-gradient(to bottom, transparent 50%, rgba(8,8,8,0.9) 100%);
+  }
+  .artist-content-col {
+    padding: 3rem 1.5rem 4rem;
+  }
+}

@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>El diario de Ana Frank — Ópera de Grigori Frid</title>
+  <meta name="description" content="Dossier artístico de la ópera El diario de Ana Frank. Música y libreto de Grigori Frid. Auxiliadora Toledano, soprano.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=Dancing+Script:wght@600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- ══════════════════════════════════════
+       HEADER
+  ══════════════════════════════════════ -->
+  <header id="site-header">
+    <div class="header-inner">
+      <div class="header-logo">
+        <span data-es="El diario de Ana Frank" data-en="The Diary of Ana Frank">El diario de Ana Frank</span>
+      </div>
+      <div class="header-right">
+        <nav class="header-nav">
+          <a href="#obra"   data-es="La Obra"   data-en="The Work">La Obra</a>
+          <a href="#equipo" data-es="El Equipo" data-en="The Team">El Equipo</a>
+          <a href="#video"  data-es="Video"     data-en="Video">Video</a>
+          <a href="#ficha"  data-es="Ficha"     data-en="Info">Ficha</a>
+          <a href="#contacto" data-es="Contacto" data-en="Contact">Contacto</a>
+        </nav>
+        <div class="lang-toggle">
+          <button class="lang-btn active" data-lang="es">ES</button>
+          <span class="lang-sep">/</span>
+          <button class="lang-btn" data-lang="en">EN</button>
+        </div>
+        <button class="menu-btn" id="menu-btn" aria-label="Menú" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <nav class="mobile-nav" id="mobile-nav" aria-hidden="true">
+    <a href="#obra"      data-es="La Obra"   data-en="The Work">La Obra</a>
+    <a href="#equipo"    data-es="El Equipo" data-en="The Team">El Equipo</a>
+    <a href="#video"     data-es="Video"     data-en="Video">Video</a>
+    <a href="#ficha"     data-es="Ficha"     data-en="Info">Ficha</a>
+    <a href="#contacto"  data-es="Contacto"  data-en="Contact">Contacto</a>
+  </nav>
+
+  <!-- ══════════════════════════════════════
+       HERO
+  ══════════════════════════════════════ -->
+  <section id="hero">
+    <div class="hero-bg">
+      <img src="assets/images/anna-frank-cover.jpg" alt="Ana Frank" class="hero-img" id="hero-img">
+      <div class="hero-overlay"></div>
+    </div>
+
+    <div class="hero-content">
+      <p class="hero-eyebrow">
+        <span class="eyebrow-rule"></span>
+        <span data-es="Ópera" data-en="Opera">Ópera</span>
+        <span class="eyebrow-rule"></span>
+      </p>
+
+      <div class="hero-title-block">
+        <h1 class="hero-title">
+          <span class="title-script" data-es="El diario de" data-en="The Diary of">El diario de</span>
+          <span class="title-script title-name">Ana Frank</span>
+        </h1>
+        <p class="hero-composer">
+          <span data-es="Música y libreto de" data-en="Music and libretto by">Música y libreto de</span>
+          <strong>Grigori Frid</strong>
+        </p>
+      </div>
+
+      <div class="hero-bottom">
+        <div class="hero-cast">
+          <span><strong>Auxiliadora Toledano</strong>, <em data-es="Soprano" data-en="Soprano">Soprano</em></span>
+          <span class="cast-dot">·</span>
+          <span><strong>Jorge Moreno Piega</strong>, <em data-es="Director de escena" data-en="Stage Director">Director de escena</em></span>
+          <span class="cast-dot">·</span>
+          <span><strong>Alexis Soriano</strong>, <em data-es="Director" data-en="Director">Director</em></span>
+        </div>
+      </div>
+      </div>
+    </div>
+
+    <a href="#obra" class="scroll-cue" aria-label="Scroll">
+      <div class="scroll-line"></div>
+    </a>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       LA OBRA
+  ══════════════════════════════════════ -->
+  <section id="obra" class="section">
+    <div class="container">
+
+      <div class="section-header reveal">
+        <span class="section-num">01</span>
+        <h2 class="section-title" data-es="La Obra" data-en="The Work">La Obra</h2>
+        <div class="section-rule"></div>
+      </div>
+
+      <!-- Tabs -->
+      <div class="obra-tabs reveal">
+        <button class="tab-btn active" data-tab="synopsis" data-es="La historia" data-en="The Story">La historia</button>
+        <button class="tab-btn" data-tab="musica" data-es="La música" data-en="The Music">La música</button>
+        <button class="tab-btn" data-tab="frid" data-es="Grigori Frid" data-en="Grigori Frid">Grigori Frid</button>
+      </div>
+
+      <!-- Tab: Sinopsis -->
+      <div class="tab-panel active" data-panel="synopsis">
+        <div class="obra-split">
+          <div class="obra-image-col">
+            <div class="portrait-wrap">
+              <img src="assets/images/grigori-frid.jpg" alt="Grigori Frid" class="portrait-img" onerror="this.closest('.portrait-wrap').classList.add('empty')">
+              <div class="portrait-label">
+                <strong>Grigori Frid</strong>
+                <span>1915 – 2012</span>
+              </div>
+            </div>
+          </div>
+          <div class="obra-text-col">
+            <div class="obra-body">
+              <p data-es="El peregrinaje vital de Ana Frank, autora del mundialmente famoso Diario que aún hoy supone un hito como esperanzado emblema de la solidaridad y la tolerancia mutuas, se erige como principal vehículo operístico para Grigori Frid a través de este novedoso montaje que aúna simbolismo, expresividad o incluso ciertos elementos tragicómicos destinados a atenuar la tragedia omnipresente. Sorteando fronteras y prejuicios, Das Tagebuch der Anne Frank, en suma, proporciona una impactante experiencia que trasciende música, escena o argumento, apelando a nuestra conciencia universal, a nuestra empatía, a nuestro propio e intransferible dolor."
+                 data-en="The life journey of Ana Frank, author of the world-famous Diary that still stands today as a hopeful emblem of mutual solidarity and tolerance, emerges as the primary operatic vehicle for Grigori Frid through this innovative staging that combines symbolism, expressiveness and even certain tragicomic elements aimed at softening the ever-present tragedy. Transcending borders and prejudices, Das Tagebuch der Anne Frank provides a powerful experience that goes beyond music, stage or plot, appealing to our universal conscience, our empathy, our own inescapable pain.">
+                El peregrinaje vital de Ana Frank, autora del mundialmente famoso Diario que aún hoy supone un hito como esperanzado emblema de la solidaridad y la tolerancia mutuas, se erige como principal vehículo operístico para Grigori Frid a través de este novedoso montaje que aúna simbolismo, expresividad o incluso ciertos elementos tragicómicos destinados a atenuar la tragedia omnipresente. Sorteando fronteras y prejuicios, Das Tagebuch der Anne Frank, en suma, proporciona una impactante experiencia que trasciende música, escena o argumento, apelando a nuestra conciencia universal, a nuestra empatía, a nuestro propio e intransferible dolor.
+              </p>
+              <p data-es="Esta ópera de cámara no se circunscribe al pasado: alza el vuelo para sortear tiempo o espacio adentrándose en un presente donde aún hoy campa a sus anchas la sombra de un exterminio constante y multidireccional."
+                 data-en="This chamber opera is not confined to the past: it soars beyond time and space, venturing into a present where the shadow of constant, multidirectional extermination still roams freely.">
+                Esta ópera de cámara no se circunscribe al pasado: alza el vuelo para sortear tiempo o espacio adentrándose en un presente donde aún hoy campa a sus anchas la sombra de un exterminio constante y multidireccional.
+              </p>
+              <p data-es="Que la voz de una inocente acalle el griterío de los culpables. Atrapada en un encierro asfixiante o –tal vez– en sí misma, la niña Ana Frank se ve obligada a madurar de pronto, lo que refleja en las páginas de un diario que es confesor implacable, que es cárcel férrea, que es grito de socorro y liberación, erigiéndose como voz emancipadora de todas las personas de bien, de todos los pueblos del mundo."
+                 data-en="May the voice of the innocent silence the clamour of the guilty. Trapped in a suffocating confinement — or perhaps within herself — the young Ana Frank is forced to mature suddenly, which she reflects in the pages of a diary that is an implacable confessor, an iron cage, a cry for help and liberation, standing as the emancipating voice of all decent people, of all the peoples of the world.">
+                Que la voz de una inocente acalle el griterío de los culpables. Atrapada en un encierro asfixiante o –tal vez– en sí misma, la niña Ana Frank se ve obligada a madurar de pronto, lo que refleja en las páginas de un diario que es confesor implacable, que es cárcel férrea, que es grito de socorro y liberación, erigiéndose como voz emancipadora de todas las personas de bien, de todos los pueblos del mundo.
+              </p>
+            </div>
+            <p class="obra-signature">— Jorge Moreno Pieiga</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tab: Música -->
+      <div class="tab-panel" data-panel="musica">
+        <div class="obra-text-full">
+          <div class="obra-body">
+            <p data-es="La ópera de Frid, «El diario de Ana Frank» constituye hoy en día un binomio inseparable con el diario de esta niña universal, que encarna en su joven y trágica infancia, uno de los alegatos más importantes contra la barbarie, la crueldad y la guerra."
+               data-en="Frid's opera, The Diary of Ana Frank, is today an inseparable pairing with the diary of this universal girl, who embodies in her young and tragic childhood one of the most powerful statements against barbarism, cruelty and war.">
+              La ópera de Frid, «El diario de Ana Frank» constituye hoy en día un binomio inseparable con el diario de esta niña universal, que encarna en su joven y trágica infancia, uno de los alegatos más importantes contra la barbarie, la crueldad y la guerra.
+            </p>
+            <p data-es="La música de la ópera es de una unidad férrea, casi parece emular ese pequeño habitáculo de Amsterdam donde se escondían esas almas marcadas por el destino. El ritmo es casi siempre binario y constante, a veces da una sensación de obscena banalidad y nos encuadra en un espacio determinado y en un tiempo que parece avanzar a paso ligero de soldado desfilando hacia lo irremisible. Hay varios motivos musicales, recurrentes en la pieza, pero el principal, con una melodía de sol, la, la bemol, mi bemol, recorre nuestra espina dorsal como un escalofrío durante toda la pieza."
+               data-en="The opera's music is of iron unity — it almost seems to emulate that small Amsterdam hideaway where souls marked by fate were concealed. The rhythm is almost always binary and constant, at times giving a sense of obscene banality, framing us in a specific space and a time that seems to march steadily, like a soldier advancing towards the inevitable. There are several musical motifs recurring throughout the piece, but the main one — a melody of G, A, A-flat, E-flat — runs down our spine like a chill throughout the entire work.">
+              La música de la ópera es de una unidad férrea, casi parece emular ese pequeño habitáculo de Amsterdam donde se escondían esas almas marcadas por el destino. El ritmo es casi siempre binario y constante, a veces da una sensación de obscena banalidad y nos encuadra en un espacio determinado y en un tiempo que parece avanzar a paso ligero de soldado desfilando hacia lo irremisible. Hay varios motivos musicales, recurrentes en la pieza, pero el principal, con una melodía de sol, la, la bemol, mi bemol, recorre nuestra espina dorsal como un escalofrío durante toda la pieza.
+            </p>
+            <p data-es="Este motivo inquietante es quizá un homenaje a Shostakovich que tiene otro célebre sobre su propio nombre re-mi bemol, do, si. Con cuatro notas ya nos sitúa en un ambiente opresivo, curiosamente el de los nazis en la ópera y el soviético en su propia vida. En la ópera se combina la luz y la oscuridad, aunque el ambiente es mayoritariamente dramático, pero también podemos ver la inocencia y la sonrisa de una niña. Hay momentos para un vals inquietante, casi apocalíptico, para una marcha marcial hacia la muerte, para música de cabaret, para momentos místicos, para el humor y el reflejo de lo cotidiano."
+               data-en="This unsettling motif is perhaps a tribute to Shostakovich, who has another famous one based on his own name: D–E-flat–C–B. With just four notes, we are placed in an oppressive atmosphere — curiously that of the Nazis in the opera, and the Soviet one in his own life. The opera combines light and darkness; while the mood is predominantly dramatic, we can also glimpse the innocence and smile of a child. There are moments for an unsettling, almost apocalyptic waltz, for a martial march toward death, for cabaret music, for mystical passages, for humour and the reflection of the everyday.">
+              Este motivo inquietante es quizá un homenaje a Shostakovich que tiene otro célebre sobre su propio nombre re-mi bemol, do, si. Con cuatro notas ya nos sitúa en un ambiente opresivo, curiosamente el de los nazis en la ópera y el soviético en su propia vida. En la ópera se combina la luz y la oscuridad, aunque el ambiente es mayoritariamente dramático, pero también podemos ver la inocencia y la sonrisa de una niña. Hay momentos para un vals inquietante, casi apocalíptico, para una marcha marcial hacia la muerte, para música de cabaret, para momentos místicos, para el humor y el reflejo de lo cotidiano.
+            </p>
+            <p data-es="El empleo del timbre en la obra es muy característico; la celesta y la campana buscan ese misticismo y religiosidad, y la trompeta, el ave de mal agüero que hace presagiar la desgracia. Frid, que fue pionero y a la vez educado por su abuelo en la religión judía, tuvo que vivir con ese dilema entre la vida y la muerte, entre Dios y su negación, y fue capaz de ver luz en tanta oscuridad. Así, la música navega también entre la atonalidad y la tonalidad."
+               data-en="The use of timbre in the work is very distinctive; the celesta and bell seek mysticism and religiosity, while the trumpet is the bird of ill omen, foretelling disaster. Frid — who was raised in both atheist pioneer camps and Jewish religion by his grandfather — had to live with that dilemma between life and death, between God and His denial, and was able to find light in so much darkness. Thus, the music also navigates between atonality and tonality.">
+              El empleo del timbre en la obra es muy característico; la celesta y la campana buscan ese misticismo y religiosidad, y la trompeta, el ave de mal agüero que hace presagiar la desgracia. Frid, que fue pionero y a la vez educado por su abuelo en la religión judía, tuvo que vivir con ese dilema entre la vida y la muerte, entre Dios y su negación, y fue capaz de ver luz en tanta oscuridad. Así, la música navega también entre la atonalidad y la tonalidad.
+            </p>
+            <blockquote class="obra-quote">
+              <p data-es="«La riqueza, la gloria, todo eso se puede perder… sin embargo, la felicidad del corazón puede abandonarte por un pequeño tiempo, pero luego despertará de nuevo y te hará feliz para toda la vida… hasta que ese momento llegue, puedes contemplar tranquila el cielo…»"
+                 data-en="'Wealth, glory, all that can be lost… yet the happiness of the heart may leave you for a brief time, but then it will awaken again and make you happy for your whole life… until that moment comes, you can gaze calmly at the sky…'">
+                «La riqueza, la gloria, todo eso se puede perder… sin embargo, la felicidad del corazón puede abandonarte por un pequeño tiempo, pero luego despertará de nuevo y te hará feliz para toda la vida… hasta que ese momento llegue, puedes contemplar tranquila el cielo…»
+              </p>
+              <cite data-es="Últimas palabras de Ana Frank en la ópera" data-en="Ana Frank's final words in the opera">Últimas palabras de Ana Frank en la ópera</cite>
+            </blockquote>
+            <p data-es="Estas son las últimas palabras de Ana Frank en la ópera, y a mi entender, como toda obra de arte verdadera, son una pregunta abierta, no una respuesta, a cada uno de nosotros."
+               data-en="These are Ana Frank's last words in the opera, and in my view — like all true works of art — they are an open question addressed to each one of us, not an answer.">
+              Estas son las últimas palabras de Ana Frank en la ópera, y a mi entender, como toda obra de arte verdadera, son una pregunta abierta, no una respuesta, a cada uno de nosotros.
+            </p>
+          </div>
+          <p class="obra-signature">— Alexis Soriano</p>
+
+          <!-- Foto de producción -->
+          <div class="prod-photo-wrap prod-photo-inline">
+            <img src="assets/images/production-2.jpg" alt="Auxiliadora Toledano en escena" onerror="this.closest('.prod-photo-wrap').style.display='none'">
+          </div>
+        </div>
+      </div>
+
+      <!-- Tab: Grigori Frid -->
+      <div class="tab-panel" data-panel="frid">
+        <div class="obra-split">
+          <div class="obra-image-col">
+            <div class="portrait-wrap">
+              <img src="assets/images/grigori-frid.jpg" alt="Grigori Frid" class="portrait-img" onerror="this.closest('.portrait-wrap').classList.add('empty')">
+              <div class="portrait-label">
+                <strong>Grigori Frid</strong>
+                <span>Moscú, 1915 – 2012</span>
+              </div>
+            </div>
+          </div>
+          <div class="obra-text-col">
+            <div class="obra-body">
+              <p data-es="Ana Frank se ocultó con su familia en una buhardilla secreta en Ámsterdam para no ser capturados por los nazis. Allí día tras día, fue escribiendo su diario secreto. Fueron descubiertos y ella y su hermana murieron de tifus y de frío en el campo de concentración de Bergen-Belsen en 1945, en unas tiendas de campaña en las que pasaron sus últimas horas de vida."
+                 data-en="Ana Frank hid with her family in a secret attic in Amsterdam to avoid capture by the Nazis. There, day after day, she wrote her secret diary. They were discovered, and she and her sister died of typhus and cold at the Bergen-Belsen concentration camp in 1945, in tents where they spent their final hours of life.">
+                Ana Frank se ocultó con su familia en una buhardilla secreta en Ámsterdam para no ser capturados por los nazis. Allí día tras día, fue escribiendo su diario secreto. Fueron descubiertos y ella y su hermana murieron de tifus y de frío en el campo de concentración de Bergen-Belsen en 1945, en unas tiendas de campaña en las que pasaron sus últimas horas de vida.
+              </p>
+              <p data-es="Grigori Frid nació en el seno de una familia cultivada. Su madre, pianista profesional, terminó la carrera de piano en Moscú y su padre, periodista y crítico musical, tocaba el violín. Por su casa pasaron legendarios músicos como un joven Wladimir Horowitz o el talentoso y aún desconocido violinista Nathan Milstein."
+                 data-en="Grigori Frid was born into a cultivated family. His mother, a professional pianist, completed her piano studies in Moscow, while his father, a journalist and music critic, played the violin. Legendary musicians passed through their home, including a young Wladimir Horowitz and the talented but then unknown violinist Nathan Milstein.">
+                Grigori Frid nació en el seno de una familia cultivada. Su madre, pianista profesional, terminó la carrera de piano en Moscú y su padre, periodista y crítico musical, tocaba el violín. Por su casa pasaron legendarios músicos como un joven Wladimir Horowitz o el talentoso y aún desconocido violinista Nathan Milstein.
+              </p>
+              <p data-es="Frid comenzó a tomarse en serio sus inclinaciones musicales y empezó a componer sus primeras piezas. Gracias a una carta de recomendación, ingresó en el conservatorio de Moscú y compuso su primera sinfonía que enseñó al propio Shostakovich, quien lo felicitó de corazón; desgraciadamente, al poco tiempo, empezó la guerra y tuvo que alistarse y dejar toda su carrera en suspenso."
+                 data-en="Frid began to take his musical inclinations seriously and started composing his first pieces. Thanks to a letter of recommendation, he was admitted to the Moscow Conservatoire and composed his first symphony, which he showed to Shostakovich himself, who congratulated him warmly. Tragically, the war soon began and he was forced to enlist, putting his entire career on hold.">
+                Frid comenzó a tomarse en serio sus inclinaciones musicales y empezó a componer sus primeras piezas. Gracias a una carta de recomendación, ingresó en el conservatorio de Moscú y compuso su primera sinfonía que enseñó al propio Shostakovich, quien lo felicitó de corazón; desgraciadamente, al poco tiempo, empezó la guerra y tuvo que alistarse y dejar toda su carrera en suspenso.
+              </p>
+              <p data-es="Frid fue un artista extremadamente generoso y gentil. Sirvió nada menos que 6 años en el frente, fue herido por metralla y condecorado. Fue pionero y a la vez sufrió el antisemitismo de aquella época en la URSS, ocultando su apellido para evitar problemas. Fundó el club para los jóvenes músicos en Moscú, un lugar de encuentro donde pasaron Prokofiev, Schnitke, Denisov, y otros muchos. Escribió para todos los géneros, pero fueron sus dos óperas de cámara — Las cartas de Van Gogh y El diario de Ana Frank — las que tuvieron más éxito internacional. Vivió 97 años y murió en Moscú el 22 de septiembre de 2012, el mismo día en que nació. En España es un absoluto desconocido y queremos contribuir a difundir su obra."
+                 data-en="Frid was an extremely generous and gentle artist. He served no fewer than 6 years on the front, was wounded by shrapnel, and was decorated. He was a pioneer who also suffered antisemitism in the USSR, hiding his surname to avoid trouble. He founded the club for young musicians in Moscow, a meeting place attended by Prokofiev, Schnittke, Denisov and many others. He wrote for all genres, but it was his two chamber operas — Letters of Van Gogh and The Diary of Ana Frank — that achieved the greatest international success. He lived to 97 and died in Moscow on 22 September 2012, the same day he was born. In Spain he is virtually unknown, and we want to help spread his work.">
+                Frid fue un artista extremadamente generoso y gentil. Sirvió nada menos que 6 años en el frente, fue herido por metralla y condecorado. Fue pionero y a la vez sufrió el antisemitismo de aquella época en la URSS, ocultando su apellido para evitar problemas. Fundó el club para los jóvenes músicos en Moscú, un lugar de encuentro donde pasaron Prokofiev, Schnitke, Denisov, y otros muchos. Escribió para todos los géneros, pero fueron sus dos óperas de cámara — Las cartas de Van Gogh y El diario de Ana Frank — las que tuvieron más éxito internacional. Vivió 97 años y murió en Moscú el 22 de septiembre de 2012, el mismo día en que nació. En España es un absoluto desconocido y queremos contribuir a difundir su obra.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       GALERÍA DE PRODUCCIÓN
+  ══════════════════════════════════════ -->
+  <section id="galeria" class="section section-dark">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-num">02</span>
+        <h2 class="section-title" data-es="Imágenes" data-en="Gallery">Imágenes</h2>
+        <div class="section-rule"></div>
+      </div>
+      <div class="gallery-grid reveal">
+        <!-- Row 1: dos verticales -->
+        <div class="gallery-item">
+          <img src="assets/images/production-2.jpg" alt="Auxiliadora Toledano — El diario de Ana Frank">
+        </div>
+        <div class="gallery-item">
+          <img src="assets/images/production-3.jpg" alt="Auxiliadora Toledano como Ana Frank">
+        </div>
+        <!-- Row 2: teatro completo -->
+        <div class="gallery-item gallery-item--wide">
+          <img src="assets/images/production-4.jpg" alt="El diario de Ana Frank — Ensemble Solaris en escena">
+        </div>
+        <!-- Row 3: dos escenas íntimas -->
+        <div class="gallery-item">
+          <img src="assets/images/production-1.jpg" alt="Ana Frank escribe su diario">
+        </div>
+        <div class="gallery-item">
+          <img src="assets/images/production-5.jpg" alt="El diario de Ana Frank — escena íntima">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       EL EQUIPO
+  ══════════════════════════════════════ -->
+  <section id="equipo" class="section">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-num">03</span>
+        <h2 class="section-title" data-es="El Equipo" data-en="The Team">El Equipo</h2>
+        <div class="section-rule"></div>
+      </div>
+
+      <div class="team-grid reveal">
+
+        <!-- Auxiliadora Toledano -->
+        <a class="team-card" href="auxiliadora.html">
+          <div class="card-img-wrap">
+            <img src="assets/images/auxiliadora-toledano.jpg" alt="Auxiliadora Toledano" onerror="this.closest('.card-img-wrap').classList.add('empty')">
+            <div class="card-hover-cue">
+              <span data-es="Ver biografía" data-en="View biography">Ver biografía</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </div>
+          </div>
+          <div class="card-footer">
+            <h3 class="card-name">Auxiliadora Toledano</h3>
+            <p class="card-role" data-es="Soprano solista" data-en="Soprano Soloist">Soprano solista</p>
+          </div>
+        </a>
+
+        <!-- Alexis Soriano -->
+        <a class="team-card" href="alexis.html">
+          <div class="card-img-wrap">
+            <img src="assets/images/alexis-soriano.jpg" alt="Alexis Soriano" onerror="this.closest('.card-img-wrap').classList.add('empty')">
+            <div class="card-hover-cue">
+              <span data-es="Ver biografía" data-en="View biography">Ver biografía</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </div>
+          </div>
+          <div class="card-footer">
+            <h3 class="card-name">Alexis Soriano</h3>
+            <p class="card-role" data-es="Director musical y artístico" data-en="Musical and Artistic Director">Director musical y artístico</p>
+          </div>
+        </a>
+
+        <!-- Jorge Moreno Pieiga -->
+        <a class="team-card" href="jorge.html">
+          <div class="card-img-wrap">
+            <img src="assets/images/jorge-moreno.jpg" alt="Jorge Moreno Pieiga" onerror="this.closest('.card-img-wrap').classList.add('empty')">
+            <div class="card-hover-cue">
+              <span data-es="Ver biografía" data-en="View biography">Ver biografía</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </div>
+          </div>
+          <div class="card-footer">
+            <h3 class="card-name">Jorge Moreno Pieiga</h3>
+            <p class="card-role" data-es="Dramaturgia y dirección escénica" data-en="Dramaturgy and Stage Direction">Dramaturgia y dirección escénica</p>
+          </div>
+        </a>
+
+        <!-- Ensemble Solaris -->
+        <a class="team-card team-card--ensemble" href="ensemble.html">
+          <div class="card-img-wrap">
+            <img src="assets/images/ensemble-solaris.jpg" alt="Ensemble Solaris" onerror="this.closest('.card-img-wrap').classList.add('empty')">
+            <div class="card-hover-cue">
+              <span data-es="Ver biografía" data-en="View biography">Ver biografía</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </div>
+          </div>
+          <div class="card-footer">
+            <h3 class="card-name">Ensemble Solaris</h3>
+            <p class="card-role" data-es="Orquesta — 9 músicos" data-en="Orchestra — 9 musicians">Orquesta — 9 músicos</p>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       VIDEO
+  ══════════════════════════════════════ -->
+  <section id="video" class="section section-dark">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-num">04</span>
+        <h2 class="section-title" data-es="Producción" data-en="Production">Producción</h2>
+        <div class="section-rule"></div>
+      </div>
+      <p class="section-intro reveal" data-es="Material audiovisual" data-en="Audiovisual material">Material audiovisual</p>
+
+      <div class="video-wrap reveal">
+        <!--
+          Coloca tu archivo de video en assets/videos/video.mp4
+          Si el archivo supera 100 MB, súbelo a YouTube y reemplaza el
+          elemento <video> por:
+          <iframe src="https://www.youtube.com/embed/TU_ID" ...></iframe>
+        -->
+        <video controls poster="assets/images/production-2.jpg">
+          <source src="assets/videos/video.mp4" type="video/mp4">
+          <p data-es="Tu navegador no soporta video HTML5." data-en="Your browser does not support HTML5 video.">Tu navegador no soporta video HTML5.</p>
+        </video>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       FICHA ARTÍSTICA
+  ══════════════════════════════════════ -->
+  <section id="ficha" class="section">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-num">05</span>
+        <h2 class="section-title" data-es="Ficha Artística" data-en="Artistic Sheet">Ficha Artística</h2>
+        <div class="section-rule"></div>
+      </div>
+
+      <div class="ficha-layout reveal">
+        <div class="ficha-main">
+          <h3 class="ficha-opera" data-es="El diario de Ana Frank" data-en="The Diary of Ana Frank">El diario de Ana Frank</h3>
+          <p class="ficha-note" data-es="Estreno de la versión escénica · En alemán, subtitulada" data-en="Premiere of the staged version · In German, with subtitles">Estreno de la versión escénica · En alemán, subtitulada</p>
+
+          <table class="ficha-table">
+            <tbody>
+              <tr>
+                <td data-es="Director musical y artístico" data-en="Musical and Artistic Director">Director musical y artístico</td>
+                <td><strong>Alexis Soriano</strong></td>
+              </tr>
+              <tr>
+                <td data-es="Soprano" data-en="Soprano">Soprano</td>
+                <td><strong>Auxiliadora Toledano</strong></td>
+              </tr>
+              <tr>
+                <td data-es="Director escénico y dramaturgia" data-en="Stage Director and Dramaturgy">Director escénico y dramaturgia</td>
+                <td><strong>Jorge Moreno Pieiga</strong></td>
+              </tr>
+              <tr>
+                <td data-es="Iluminación, subtítulos, video" data-en="Lighting, Subtitles, Video">Iluminación, subtítulos, video</td>
+                <td><strong>Mario Copete</strong></td>
+              </tr>
+              <tr>
+                <td data-es="Orquesta" data-en="Orchestra">Orquesta</td>
+                <td><strong>Ensemble Solaris <em class="muted">(9 músicos)</em></strong></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="ficha-aside">
+          <div class="cache-card">
+            <p class="cache-label" data-es="Caché" data-en="Performance Fee">Caché</p>
+            <p class="cache-amount">14.800 €</p>
+            <p class="cache-vat">+ IVA</p>
+            <p class="cache-detail" data-es="Estreno de la versión escénica" data-en="Premiere of the staged version">Estreno de la versión escénica</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       CONTACTO
+  ══════════════════════════════════════ -->
+  <section id="contacto" class="section section-dark">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-num">06</span>
+        <h2 class="section-title" data-es="Contacto" data-en="Contact">Contacto</h2>
+        <div class="section-rule"></div>
+      </div>
+
+      <div class="contact-layout reveal">
+        <div class="contact-left">
+          <p class="contact-name">Auxiliadora Toledano</p>
+          <p class="contact-role" data-es="Soprano — Representación artística" data-en="Soprano — Artistic representation">Soprano — Representación artística</p>
+          <a href="tel:+34637464618" class="contact-link">637 464 618</a>
+          <a href="mailto:auxiliadoratr@gmail.com" class="contact-link">auxiliadoratr@gmail.com</a>
+        </div>
+        <div class="contact-right">
+          <a href="mailto:auxiliadoratr@gmail.com?subject=El diario de Ana Frank — Consulta" class="cta-btn">
+            <span data-es="Solicitar información" data-en="Request Information">Solicitar información</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       FOOTER
+  ══════════════════════════════════════ -->
+  <footer>
+    <div class="container footer-inner">
+      <p class="footer-title" data-es="El diario de Ana Frank" data-en="The Diary of Ana Frank">El diario de Ana Frank</p>
+      <p class="footer-sub" data-es="Música y libreto de Grigori Frid · Ensemble Solaris · Festival Internacional Alborada Clásica" data-en="Music and libretto by Grigori Frid · Ensemble Solaris · International Festival Alborada Clásica">Música y libreto de Grigori Frid · Ensemble Solaris · Festival Internacional Alborada Clásica</p>
+    </div>
+  </footer>
+
+  <!-- Lightbox -->
+  <div id="lightbox">
+    <button id="lightbox-close">&#x2715;</button>
+    <button id="lightbox-prev">&#8249;</button>
+    <img id="lightbox-img" src="" alt="">
+    <button id="lightbox-next">&#8250;</button>
+  </div>
+
+  <!-- GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

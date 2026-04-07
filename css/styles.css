@@ -1,0 +1,942 @@
+/* =====================================================
+   EL DIARIO DE ANA FRANK — Dossier Digital
+   ===================================================== */
+
+/* ---- Reset ---- */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+img { max-width: 100%; display: block; }
+a  { color: inherit; text-decoration: none; }
+
+/* ---- Variables ---- */
+:root {
+  --bg:         #080808;
+  --bg2:        #0d0d0d;
+  --bg3:        #131313;
+  --crimson:    #7a1515;
+  --crimson2:   #9b1a1a;
+  --gold:       #c8a96e;
+  --gold2:      #d9bc87;
+  --ivory:      #f0ebe0;
+  --ivory2:     #a09585;
+  --ivory3:     #635850;
+  --border:     rgba(200,169,110,0.14);
+  --ease:       cubic-bezier(0.25,0.46,0.45,0.94);
+  --t:          0.4s;
+}
+
+/* ---- Base ---- */
+html { scroll-behavior: smooth; font-size: 16px; }
+body {
+  background: var(--bg);
+  color: var(--ivory);
+  font-family: 'Inter', sans-serif;
+  font-weight: 300;
+  line-height: 1.75;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+::-webkit-scrollbar          { width: 3px; }
+::-webkit-scrollbar-track    { background: var(--bg); }
+::-webkit-scrollbar-thumb    { background: var(--crimson); }
+
+/* ---- Typography ---- */
+h1,h2,h3,h4 {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+/* ---- Layout ---- */
+.container {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* ---- Reveal (initial state for GSAP) ---- */
+.js-ready .reveal {
+  opacity: 0;
+  transform: translateY(28px);
+}
+
+/* ======================================================
+   HEADER
+====================================================== */
+#site-header {
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: 200;
+  padding: 1.6rem 2.5rem;
+  transition: background var(--t) var(--ease), padding var(--t) var(--ease),
+              border-color var(--t) var(--ease);
+  border-bottom: 1px solid transparent;
+}
+#site-header.scrolled {
+  background: rgba(8,8,8,0.92);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  padding: 1rem 2.5rem;
+  border-bottom-color: var(--border);
+}
+.header-inner {
+  max-width: 1160px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+}
+.header-logo {
+  font-family: 'Dancing Script', cursive;
+  font-size: 1.3rem;
+  color: var(--ivory);
+  opacity: 0.85;
+  white-space: nowrap;
+}
+.header-right { display: flex; align-items: center; gap: 2.5rem; }
+.header-nav   { display: flex; gap: 1.8rem; }
+.header-nav a {
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ivory2);
+  font-weight: 400;
+  transition: color var(--t);
+}
+.header-nav a:hover { color: var(--gold); }
+
+.lang-toggle { display: flex; align-items: center; gap: 0.45rem; }
+.lang-sep    { color: var(--ivory3); font-size: 0.75rem; }
+.lang-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font: 500 0.72rem/1 'Inter', sans-serif;
+  letter-spacing: 0.15em;
+  color: var(--ivory3);
+  padding: 0.15rem 0;
+  transition: color var(--t);
+}
+.lang-btn.active {
+  color: var(--gold);
+  border-bottom: 1px solid var(--gold);
+}
+.lang-btn:hover { color: var(--ivory2); }
+
+/* Hamburger */
+.menu-btn {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.4rem;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+}
+.menu-btn span {
+  display: block;
+  width: 22px;
+  height: 1.5px;
+  background: var(--ivory);
+  transition: transform var(--t) var(--ease), opacity var(--t);
+  transform-origin: center;
+}
+.menu-btn.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+.menu-btn.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+.menu-btn.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+/* Mobile nav panel */
+.mobile-nav {
+  position: fixed;
+  inset: 0;
+  background: rgba(8,8,8,0.97);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  z-index: 190;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2.5rem;
+  padding: 2rem;
+}
+.mobile-nav.open { display: flex; }
+.mobile-nav a {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.2rem;
+  font-weight: 300;
+  color: var(--ivory2);
+  letter-spacing: 0.04em;
+  transition: color var(--t);
+}
+.mobile-nav a:hover,
+.mobile-nav a:focus { color: var(--gold); }
+
+/* ======================================================
+   HERO
+====================================================== */
+#hero {
+  position: relative;
+  height: 100vh;
+  min-height: 680px;
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+}
+.hero-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 20%;
+  filter: sepia(40%) contrast(1.05) brightness(0.55);
+  transform-origin: center;
+  will-change: transform;
+}
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(8,8,8,0.35) 0%,
+    rgba(8,8,8,0.2)  40%,
+    rgba(8,8,8,0.6)  75%,
+    rgba(8,8,8,0.92) 100%
+  );
+}
+
+/* Grain texture */
+#hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.6;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 10vh 1.5rem 16vh;
+  max-width: 860px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.hero-eyebrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0;
+  opacity: 0;
+}
+.eyebrow-rule {
+  display: inline-block;
+  width: 28px;
+  height: 1px;
+  background: var(--gold);
+  opacity: 0.6;
+}
+
+.hero-title {
+  font-family: 'Dancing Script', cursive;
+  font-weight: 700;
+  font-size: clamp(4rem, 10vw, 8.5rem);
+  line-height: 1.0;
+  color: var(--ivory);
+  margin: 0;
+  text-shadow: 0 2px 40px rgba(0,0,0,0.7);
+  opacity: 0;
+  transform: translateY(18px);
+}
+.title-script  { display: block; }
+.title-name    { display: block; }
+
+.hero-title-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+.hero-bottom {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.2rem;
+}
+.hero-composer {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1rem, 2vw, 1.35rem);
+  font-weight: 300;
+  color: var(--ivory2);
+  margin: 0;
+  letter-spacing: 0.04em;
+  opacity: 0;
+}
+.hero-composer strong {
+  font-weight: 600;
+  color: var(--gold2);
+}
+
+.hero-cast {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem 2rem;
+  font-size: 1rem;
+  letter-spacing: 0.04em;
+  color: var(--ivory2);
+  opacity: 0;
+  margin: 0;
+}
+.hero-cast strong { color: var(--ivory); font-weight: 600; font-size: 1.05rem; }
+.hero-cast em     { font-style: normal; color: var(--ivory3); font-size: 0.9rem; }
+.cast-dot         { color: var(--gold); opacity: 0.5; font-size: 1.1rem; }
+
+.scroll-cue {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  opacity: 0;
+}
+.scroll-line {
+  width: 1px;
+  height: 50px;
+  background: linear-gradient(to bottom, transparent, var(--gold));
+  animation: pulse-line 2.2s ease-in-out infinite;
+}
+@keyframes pulse-line {
+  0%,100% { opacity: 1; transform: scaleY(1); }
+  50%      { opacity: 0.3; transform: scaleY(0.6); }
+}
+
+/* ======================================================
+   SECTIONS — shared
+====================================================== */
+.section      { padding: 7rem 0; }
+.section-dark { background: var(--bg2); }
+
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 4rem;
+}
+.section-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 4.5rem;
+  font-weight: 300;
+  line-height: 1;
+  color: var(--gold);
+  opacity: 0.2;
+  min-width: 3.5rem;
+}
+.section-title {
+  font-size: clamp(1.8rem, 3.5vw, 3rem);
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+}
+.section-rule {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(to right, var(--gold), transparent);
+  opacity: 0.2;
+  transform-origin: left;
+}
+.section-intro {
+  font-size: 0.78rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ivory3);
+  margin-top: -2.5rem;
+  margin-bottom: 2.5rem;
+}
+
+/* ======================================================
+   LA OBRA — tabs
+====================================================== */
+.obra-tabs {
+  display: flex;
+  gap: 0;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 3.5rem;
+}
+.tab-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font: 400 0.78rem/1 'Inter', sans-serif;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ivory3);
+  padding: 0.9rem 1.8rem;
+  border-bottom: 2px solid transparent;
+  transition: color var(--t), border-color var(--t);
+  margin-bottom: -1px;
+}
+.tab-btn.active { color: var(--gold); border-bottom-color: var(--gold); }
+.tab-btn:hover  { color: var(--ivory2); }
+
+.tab-panel { display: none; }
+.tab-panel.active { display: block; }
+
+/* Obra — two-column layout */
+.obra-split {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 5rem;
+  align-items: start;
+}
+.obra-text-full { max-width: 760px; margin: 0 auto; }
+
+/* Portrait */
+.portrait-wrap { position: relative; }
+.portrait-img {
+  width: 100%;
+  aspect-ratio: 3/4;
+  object-fit: cover;
+  object-position: top;
+  filter: grayscale(100%) contrast(1.1) brightness(0.85);
+}
+.portrait-wrap.empty {
+  aspect-ratio: 3/4;
+  background: var(--bg3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--ivory3);
+  font-style: italic;
+  font-size: 0.85rem;
+}
+.portrait-label {
+  margin-top: 0.9rem;
+  padding-left: 0.9rem;
+  border-left: 2px solid var(--crimson);
+}
+.portrait-label strong { display: block; font-family: 'Cormorant Garamond', serif; font-size: 1.05rem; }
+.portrait-label span   { font-size: 0.75rem; color: var(--ivory3); letter-spacing: 0.08em; }
+
+.prod-photo-wrap img {
+  width: 100%;
+  filter: contrast(1.05) brightness(0.85);
+}
+
+/* Obra text */
+.obra-byline {
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 2rem;
+}
+.obra-body { display: flex; flex-direction: column; gap: 1.4rem; }
+.obra-body p {
+  font-size: 1rem;
+  line-height: 1.9;
+  color: var(--ivory2);
+}
+.obra-body p:first-child { color: var(--ivory); }
+
+.obra-quote {
+  border-left: 3px solid var(--crimson);
+  padding: 1rem 0 1rem 1.5rem;
+  margin: 0.5rem 0;
+}
+.obra-quote p {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.2rem !important;
+  font-style: italic;
+  color: var(--ivory) !important;
+  line-height: 1.65;
+}
+.obra-quote cite {
+  display: block;
+  margin-top: 0.5rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ivory3);
+  font-style: normal;
+}
+
+.obra-signature {
+  margin-top: 1.5rem;
+  padding-top: 1.2rem;
+  border-top: 1px solid var(--border);
+  text-align: right;
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  color: var(--ivory3);
+  font-size: 1rem;
+}
+
+.prod-photo-inline {
+  margin-top: 3rem;
+}
+.prod-photo-inline img {
+  width: 100%;
+  max-height: 420px;
+  object-fit: cover;
+  filter: brightness(0.85) contrast(1.05);
+}
+
+/* ======================================================
+   GALLERY
+====================================================== */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.6rem;
+}
+.gallery-item {
+  overflow: hidden;
+  cursor: pointer;
+}
+.gallery-item img {
+  width: 100%;
+  height: 360px;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+  filter: brightness(0.82) contrast(1.06);
+  transition: filter 0.5s var(--ease), transform 0.7s var(--ease);
+}
+.gallery-item:hover img {
+  filter: brightness(1) contrast(1.08);
+  transform: scale(1.03);
+}
+.gallery-item--wide {
+  grid-column: 1 / -1;
+}
+.gallery-item--wide img {
+  height: 420px;
+  object-position: center center;
+}
+
+/* ======================================================
+   LIGHTBOX
+====================================================== */
+#lightbox {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: rgba(0,0,0,0.93);
+  align-items: center;
+  justify-content: center;
+  cursor: zoom-out;
+}
+#lightbox.open {
+  display: flex;
+}
+#lightbox img {
+  max-width: 90vw;
+  max-height: 90vh;
+  object-fit: contain;
+  display: block;
+  box-shadow: 0 0 80px rgba(0,0,0,0.8);
+  cursor: default;
+}
+#lightbox-close {
+  position: absolute;
+  top: 1.5rem;
+  right: 2rem;
+  background: none;
+  border: none;
+  color: var(--ivory2);
+  font-size: 2rem;
+  cursor: pointer;
+  line-height: 1;
+  transition: color var(--t);
+}
+#lightbox-close:hover { color: var(--gold); }
+#lightbox-prev,
+#lightbox-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: var(--ivory2);
+  font-size: 2.5rem;
+  cursor: pointer;
+  padding: 1rem;
+  transition: color var(--t);
+  line-height: 1;
+}
+#lightbox-prev { left: 1rem; }
+#lightbox-next { right: 1rem; }
+#lightbox-prev:hover,
+#lightbox-next:hover { color: var(--gold); }
+
+.gallery-item { cursor: zoom-in; }
+
+/* ======================================================
+   TEAM
+====================================================== */
+.team-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+  justify-content: center;
+}
+.team-card {
+  flex: 0 0 calc(33.333% - 0.9rem);
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+.team-card--ensemble {
+  flex: 0 0 100%;
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+}
+
+.card-img-wrap {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 2/3;
+  background: var(--bg3);
+}
+.card-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+  filter: grayscale(100%) contrast(1.1) brightness(0.8);
+  transition: filter 0.5s var(--ease), transform 0.7s var(--ease);
+}
+.team-card:hover .card-img-wrap img {
+  filter: grayscale(50%) contrast(1.1) brightness(0.7);
+  transform: scale(1.04);
+}
+
+/* Initials placeholder */
+.card-img-wrap.empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--bg3), #1a0d0d);
+}
+.card-initials {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 3rem;
+  color: var(--crimson);
+  opacity: 0.35;
+}
+
+/* Hover cue — "Ver biografía →" */
+.card-hover-cue {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top,
+    rgba(90,8,8,0.88)  0%,
+    rgba(4,0,0,0.55)   50%,
+    transparent        100%);
+  opacity: 0;
+  transition: opacity 0.4s var(--ease);
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  padding: 1.25rem;
+  gap: 0.4rem;
+  color: var(--gold);
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.card-hover-cue svg { flex-shrink: 0; transition: transform 0.3s var(--ease); }
+.team-card:hover .card-hover-cue { opacity: 1; }
+.team-card:hover .card-hover-cue svg { transform: translateX(3px); }
+
+.card-footer { padding: 1rem 0 0.25rem; }
+.card-name {
+  font-family: 'Dancing Script', cursive;
+  font-size: clamp(1.3rem, 2vw, 1.7rem);
+  font-weight: 600;
+  color: var(--ivory);
+  margin-bottom: 0.2rem;
+}
+.card-role {
+  font-size: 0.8rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+/* Ensemble — cinematic panoramic banner */
+.team-card--ensemble {
+  display: block;
+  position: relative;
+  margin-top: 1rem;
+}
+.team-card--ensemble .card-img-wrap {
+  aspect-ratio: 21/7;
+  width: 100%;
+}
+.team-card--ensemble .card-img-wrap img {
+  object-position: center center;
+}
+/* Name + role overlaid on image bottom-left */
+.team-card--ensemble .card-footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 2rem 2.5rem;
+  background: linear-gradient(to top, rgba(8,8,8,0.92) 0%, transparent 100%);
+  pointer-events: none;
+}
+.team-card--ensemble .card-name { font-family: 'Dancing Script', cursive; }
+/* Hover cue bottom-right */
+.team-card--ensemble .card-hover-cue {
+  align-items: flex-end;
+  justify-content: flex-end;
+}
+
+/* ======================================================
+   VIDEO
+====================================================== */
+.video-wrap {
+  border: 1px solid var(--border);
+  background: #000;
+  overflow: hidden;
+}
+.video-wrap video {
+  width: 100%;
+  max-height: 68vh;
+  display: block;
+}
+.video-wrap iframe {
+  width: 100%;
+  aspect-ratio: 16/9;
+  display: block;
+  border: none;
+}
+
+/* ======================================================
+   FICHA ARTÍSTICA
+====================================================== */
+.ficha-layout {
+  display: grid;
+  grid-template-columns: 1fr 260px;
+  gap: 4rem;
+  align-items: start;
+}
+.ficha-opera {
+  font-family: 'Dancing Script', cursive;
+  font-size: 2.2rem;
+  color: var(--ivory);
+  font-weight: 700;
+  margin-bottom: 0.4rem;
+}
+.ficha-note {
+  font-size: 0.78rem;
+  color: var(--ivory3);
+  font-style: italic;
+  letter-spacing: 0.04em;
+  margin-bottom: 2.5rem;
+}
+.ficha-table { width: 100%; border-collapse: collapse; }
+.ficha-table tr { border-bottom: 1px solid var(--border); }
+.ficha-table td { padding: 1rem 0; vertical-align: middle; }
+.ficha-table td:first-child {
+  color: var(--ivory3);
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  width: 44%;
+  padding-right: 2rem;
+}
+.ficha-table td:last-child {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.1rem;
+  color: var(--ivory);
+}
+.muted { color: var(--ivory3); font-size: 0.85em; font-style: normal; }
+
+.cache-card {
+  border: 1px solid rgba(122,21,21,0.5);
+  padding: 2.2rem 1.8rem;
+  text-align: center;
+  background: rgba(122,21,21,0.06);
+  margin-bottom: 1.25rem;
+}
+.cache-label  { font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ivory3); margin-bottom: 0.6rem; }
+.cache-amount { font-family: 'Cormorant Garamond', serif; font-size: 3.2rem; font-weight: 700; color: var(--ivory); line-height: 1; }
+.cache-vat    { font-size: 0.8rem; color: var(--ivory2); margin-bottom: 0.8rem; }
+.cache-detail { font-size: 0.68rem; color: var(--ivory3); font-style: italic; }
+
+.festival-card {
+  border: 1px solid var(--border);
+  padding: 1.4rem;
+  text-align: center;
+}
+.festival-pre  { font-size: 0.62rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--ivory3); margin-bottom: 0.3rem; }
+.festival-name { font-family: 'Dancing Script', cursive; font-size: 1.5rem; color: var(--gold); font-weight: 600; margin-bottom: 0.35rem; }
+.festival-date { font-size: 0.75rem; color: var(--ivory2); letter-spacing: 0.08em; }
+
+/* ======================================================
+   CONTACTO
+====================================================== */
+.contact-layout {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4rem;
+  flex-wrap: wrap;
+}
+.contact-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2rem;
+  color: var(--ivory);
+  margin-bottom: 0.3rem;
+}
+.contact-role {
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1.5rem;
+}
+.contact-link {
+  display: block;
+  color: var(--ivory2);
+  font-size: 1.05rem;
+  margin-bottom: 0.5rem;
+  transition: color var(--t);
+}
+.contact-link:hover { color: var(--gold); }
+
+.cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: var(--crimson);
+  color: var(--ivory);
+  padding: 1rem 2.2rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-weight: 500;
+  transition: background var(--t) var(--ease), transform var(--t) var(--ease);
+  white-space: nowrap;
+}
+.cta-btn:hover { background: var(--crimson2); transform: translateX(4px); }
+.cta-btn svg   { transition: transform var(--t) var(--ease); }
+.cta-btn:hover svg { transform: translateX(4px); }
+
+/* ======================================================
+   FOOTER
+====================================================== */
+footer {
+  padding: 2.5rem 0;
+  border-top: 1px solid var(--border);
+}
+.footer-inner { display: flex; flex-direction: column; align-items: center; gap: 0.4rem; text-align: center; }
+.footer-title {
+  font-family: 'Dancing Script', cursive;
+  font-size: 1.4rem;
+  color: var(--ivory2);
+}
+.footer-sub {
+  font-size: 0.68rem;
+  color: var(--ivory3);
+  letter-spacing: 0.1em;
+}
+
+/* ======================================================
+   RESPONSIVE
+====================================================== */
+@media (max-width: 1024px) {
+  .obra-split {
+    grid-template-columns: 220px 1fr;
+    gap: 3rem;
+  }
+  .team-card { flex: 0 0 calc(50% - 0.65rem); }
+  .team-card--ensemble { flex: 0 0 100%; }
+  .team-card--ensemble .card-img-wrap { aspect-ratio: 21/8; }
+  .ficha-layout { grid-template-columns: 1fr 240px; gap: 3rem; }
+}
+
+@media (max-width: 768px) {
+  .header-nav { display: none; }
+  .menu-btn   { display: flex; }
+  #site-header { padding: 1.2rem 1.5rem; }
+  #site-header.scrolled { padding: 0.9rem 1.5rem; }
+
+  .hero-cast { display: none; }
+  .hero-title { font-size: clamp(3.2rem, 13vw, 6rem); }
+
+  .section-title { white-space: normal; }
+  .section-num   { font-size: 3.5rem; min-width: 2.8rem; }
+  .section-header { gap: 1.2rem; margin-bottom: 3rem; }
+
+  .obra-split {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+  .obra-image-col { display: flex; gap: 1.5rem; align-items: flex-start; }
+  .portrait-wrap  { max-width: 160px; flex-shrink: 0; }
+
+  .gallery-item img { height: 220px; }
+  .gallery-item--wide img { height: 260px; }
+
+  .team-card { flex: 0 0 calc(50% - 0.65rem); }
+  .team-card--ensemble { flex: 0 0 100%; }
+  .team-card--ensemble .card-img-wrap { aspect-ratio: 16/6; }
+
+  .ficha-layout { grid-template-columns: 1fr; gap: 2.5rem; }
+  .ficha-table td:first-child { padding-right: 1rem; }
+  .contact-layout { flex-direction: column; gap: 2.5rem; }
+  .section { padding: 5rem 0; }
+  .container { padding: 0 1.5rem; }
+}
+
+@media (max-width: 480px) {
+  .team-card { flex: 0 0 100%; }
+  .team-card--ensemble { flex: 0 0 100%; }
+  .gallery-grid { grid-template-columns: 1fr; }
+  .gallery-item--wide { grid-column: 1; }
+  .gallery-item img { height: 260px; }
+  .gallery-item--wide img { height: 260px; }
+  .obra-tabs { overflow-x: auto; }
+  .tab-btn { padding: 0.8rem 1.2rem; white-space: nowrap; }
+  .cache-amount { font-size: 2.6rem; }
+  .section-num { font-size: 2.8rem; min-width: 2.2rem; }
+  .section-header { gap: 0.9rem; margin-bottom: 2.5rem; }
+  .section { padding: 4rem 0; }
+  .container { padding: 0 1.2rem; }
+  .hero-title { font-size: clamp(2.8rem, 14vw, 4.5rem); }
+  .ficha-table td { padding: 0.75rem 0; }
+  .ficha-table td:first-child { font-size: 0.7rem; padding-right: 0.75rem; }
+}
